@@ -7,6 +7,24 @@
   :deploy-branches ["master"]
   :pedantic? :abort
 
+  :repositories {"confluent" {:url "https://packages.confluent.io/maven/"}
+                 "snapshots" {:url "https://fundingcircle.jfrog.io/fundingcircle/libs-snapshot"
+                              :username [:gpg :env/artifactory_user]
+                              :password [:gpg :env/artifactory_password]
+                              :sign-releases false}
+                 "releases" {:url "https://fundingcircle.jfrog.io/fundingcircle/libs-release"
+                             :username [:gpg :env/artifactory_user]
+                             :password [:gpg :env/artifactory_password]
+                             :sign-releases false}
+                 "central"  {:url "https://fundingcircle.jfrog.io/fundingcircle/libs-release"
+                             :username [:gpg :env/artifactory_user]
+                             :password [:gpg :env/artifactory_password]
+                             :sign-releases false}
+                 "clojars"  {:url "https://fundingcircle.jfrog.io/fundingcircle/libs-release"
+                             :username [:gpg :env/artifactory_user]
+                             :password [:gpg :env/artifactory_password]
+                             :sign-releases false}}
+
   :dependencies
   [[org.clojure/clojure "1.8.0"]
    [org.clojure/tools.logging "0.3.1"]
