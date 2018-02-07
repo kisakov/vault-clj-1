@@ -1,4 +1,4 @@
-(defproject amperity/vault-clj "0.5.2-SNAPSHOT"
+(defproject amperity/vault-clj "3e9f6d2816da7532b5d13492bb251c965b8bd3d2"
   :description "Clojure client for the Vault secret management system."
   :url "https://github.com/amperity/vault-clj"
   :license {:name "Apache License"
@@ -7,23 +7,13 @@
   :deploy-branches ["master"]
   :pedantic? :abort
 
-  :repositories {"confluent" {:url "https://packages.confluent.io/maven/"}
-                 "snapshots" {:url "https://fundingcircle.jfrog.io/fundingcircle/libs-snapshot"
-                              :username [:gpg :env/artifactory_user]
-                              :password [:gpg :env/artifactory_password]
-                              :sign-releases false}
-                 "releases" {:url "https://fundingcircle.jfrog.io/fundingcircle/libs-release"
-                             :username [:gpg :env/artifactory_user]
-                             :password [:gpg :env/artifactory_password]
-                             :sign-releases false}
-                 "central"  {:url "https://fundingcircle.jfrog.io/fundingcircle/libs-release"
-                             :username [:gpg :env/artifactory_user]
-                             :password [:gpg :env/artifactory_password]
-                             :sign-releases false}
-                 "clojars"  {:url "https://fundingcircle.jfrog.io/fundingcircle/libs-release"
-                             :username [:gpg :env/artifactory_user]
-                             :password [:gpg :env/artifactory_password]
-                             :sign-releases false}}
+  :repositories {"confluent" "https://packages.confluent.io/maven/"
+                 "releases" {:url "https://fundingcircle.jfrog.io/fundingcircle/libs-release-local"
+                             :username :env/artifactory_user
+                             :password :env/artifactory_password}
+                 "snapshots" {:url "https://fundingcircle.jfrog.io/fundingcircle/libs-snapshot-local"
+                              :username :env/artifactory_user
+                              :password :env/artifactory_password}}
 
   :dependencies
   [[org.clojure/clojure "1.8.0"]
